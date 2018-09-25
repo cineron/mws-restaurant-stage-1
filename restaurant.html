@@ -10,6 +10,8 @@
   <!-- Main CSS file -->
   <link rel="stylesheet" href="css/styles.css" type="text/css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ==" crossorigin=""/>
+
+  <script type="application/javascript" charset="utf-8" src="js/register.js"></script>
   <title>Restaurant Info</title>
 </head>
 
@@ -21,9 +23,11 @@
       <h1><a href="/">Restaurant Reviews</a></h1>
     </nav>
     <!-- Beginning breadcrumb -->
+    <nav aria-label="Breadcrumb>"
     <ul id="breadcrumb" >
       <li><a href="/">Home</a></li>
     </ul>
+    </nav>
     <!-- End breadcrumb -->
     <!-- End nav -->
   </header>
@@ -41,8 +45,20 @@
       <h1 id="restaurant-name"></h1>
       <img id="restaurant-img">
       <p id="restaurant-cuisine"></p>
-      <p id="restaurant-address"></p>
-      <table id="restaurant-hours"></table>
+    </section>
+    <section id="restaurant-contact">
+      <p id="restaurant-address" aria-labelledby="restaurant-address-label"></p>
+      <label id="restaurant-address-label" class="restaurant-info-label">address</label>
+      <!-- Beginning Map from D.Brown follow-along-->
+      <section id="map-container" aria-labelledby="map-aria-description" role="application">
+        <div id="map"></div>
+      </section>
+      <label id="map-aria-description" class="map-aria-description">Google Map Application</label>
+      <!-- End Map -->
+      <div class="restaurant-hours-flex">
+        <table id="restaurant-hours" aria-labelledby="restaurant-hours-label"></table>
+        <label id="restaurant-hours-label" class="restaurant-info-label">Hours of Operation</label>
+      </div>
     </section>
     <!-- end restaurant -->
     <!-- Beginning reviews -->
