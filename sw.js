@@ -24,4 +24,36 @@ self.addEventListener("install", event => {
     );
 });
 
-self.addEventListener("fetch")
+self.addEventListener("fetch", event => {
+    let cacheRequest = event.request;
+    let cacheURLObject = new URL(event.request.url);
+    if (event.request.url.indexOf("restaurant.html") > -1) {
+        cacheRequest = new Request(cacheURL);
+    }
+    if (cacheURLObject. hostname !== "localhost") {
+        event.request.mode = "no-cors";
+    }
+    
+    event.respondWith(
+        caches.match(cacheRequest).then(response => {
+            return (
+                response ||
+                fetch(event.request).then(fetchResponse => {
+                    return caches.open(cacheID).then(cache => {
+                        cache.put(event.request.fetchResponse.clone());
+                        return fetchResponse;
+                    });
+                })
+                .catch(error => {
+                    if (event.request.url.indexOf(".jpg") > -1) {
+                        return caches.match("/img/na.png");
+                    }
+                    return new Response("Application is not connected to the internet", {
+                        status: 404, 
+                        statusText: "Application is not connected to the internet."
+                    });
+                })
+            );
+        })
+    );
+});
