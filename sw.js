@@ -14,8 +14,8 @@ self.addEventListener("install", event => {
                 "/js/dbhelper.js",
                 "/js/main.js",
                 "/js/register.js",
-                "/js/restaurant_info.js"
-                "/img/na.png"
+                "/js/restaurant_info.js",
+                // "/img/na.png"
             ])
             .catch(error => {
                 console.log(`caches open failed!: ${error}`);
